@@ -3,14 +3,20 @@
 # captured on the WSL2 laptop subscribing to
 #   /ba_overview_camera/image_raw/compressed
 #
-# camera_name is renamed from the cameracalibrator default "narrow_stereo" to
-# "ba_overview_camera" so it matches the v4l2_camera_node camera_name param
-# and the camera_info_manager loads it without a "does not match" warning.
+# camera_name must match what v4l2_camera_node reports to the
+# camera_info_manager, otherwise the manager logs
+#     [<device_name>] does not match <yaml_name> in file ...
+# on every startup. v4l2_camera_node (0.6.x) derives this name from the USB
+# product string and does NOT honour a `camera_name` ROS parameter, so the
+# value below is the device-derived name, not a role name like
+# "ba_overview_camera". If you swap to a different webcam, this mismatch is
+# the expected signal that the intrinsics no longer apply and you need to
+# re-calibrate.
 #
 # If you re-calibrate: overwrite this file, keep the camera_name line.
 image_width: 640
 image_height: 480
-camera_name: ba_overview_camera
+camera_name: logitech_webcam_c930e
 camera_matrix:
   rows: 3
   cols: 3
