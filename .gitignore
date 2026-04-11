@@ -1,0 +1,10 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+
+# colcon / ament build artefacts (if someone ever builds in-tree)
+build/
+install/
+log/

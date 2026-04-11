@@ -10,4 +10,6 @@ Related Projekts:
 
 Server: ubuntu1.local
 
+Git:
+* https://github.com/schmiereck/ba_camera_bridge
 

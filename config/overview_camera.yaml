@@ -1,0 +1,14 @@
+# Parameters for the overview v4l2_camera_node.
+#
+# The wildcard key "/**" matches any node loaded with this file, so the
+# same YAML stays valid if the launch file changes namespace or node name.
+/**:
+  ros__parameters:
+    video_device: "/dev/video0"
+    pixel_format: "YUYV"
+    output_encoding: "rgb8"
+    image_size: [640, 480]
+    # time_per_frame = [numerator, denominator] -> here 1/10 s = 10 fps
+    time_per_frame: [1, 10]
+    camera_frame_id: "overview_camera_link"
+    camera_info_url: ""

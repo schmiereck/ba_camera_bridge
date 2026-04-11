@@ -1,0 +1,30 @@
+[Unit]
+Description=BA Overview Camera ROS2 Publisher (v4l2_camera via ba_camera_bridge)
+Documentation=https://github.com/schmiereck/ba_camera_bridge
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=ubuntu
+Group=ubuntu
+
+# Match the rest of the ROS2 setup (laptop WSL2 + BAArduinoController).
+Environment=ROS_DOMAIN_ID=1
+Environment=RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+Environment=HOME=/home/ubuntu
+
+# Source base ROS + overlay workspace, then launch the camera.
+# Using `bash -c` (not `-lc`) so we do NOT depend on interactive ~/.bashrc state.
+ExecStart=/bin/bash -c 'set -e; source /opt/ros/humble/setup.bash; source /home/ubuntu/ros2_ws/install/setup.bash; exec ros2 launch ba_camera_bridge overview_camera.launch.py'
+
+Restart=on-failure
+RestartSec=3
+
+# Tighten a little — the camera node does not need privileges beyond /dev/video0
+# (the `video` group access is granted by the `ubuntu` user's default groups).
+NoNewPrivileges=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
