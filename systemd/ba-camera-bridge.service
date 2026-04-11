@@ -10,8 +10,13 @@ User=ubuntu
 Group=ubuntu
 
 # Match the rest of the ROS2 setup (laptop WSL2 + BAArduinoController).
+# The CycloneDDS URI points at the Pi's existing peer/interface config so
+# discovery works consistently with the WSL2 laptop — without this the node
+# falls back to Cyclone defaults (multicast, auto-picked interface) and the
+# laptop cannot see this publisher.
 Environment=ROS_DOMAIN_ID=1
 Environment=RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+Environment=CYCLONEDDS_URI=file:///home/ubuntu/cyclonedds.xml
 Environment=HOME=/home/ubuntu
 
 # Source base ROS + overlay workspace, then launch the camera.
