@@ -7,7 +7,9 @@
 # Or remotely from the Windows/WSL host:
 #     ssh ubuntu@ubuntu1 '~/ros2_ws/src/ba_camera_bridge/scripts/deploy_ubuntu1.sh'
 
-set -euo pipefail
+# Note: no `-u` — ROS2's /opt/ros/humble/setup.bash references unbound
+# shell vars like AMENT_TRACE_SETUP_FILES and would abort otherwise.
+set -eo pipefail
 
 REPO_DIR="${HOME}/ros2_ws/src/ba_camera_bridge"
 WS_DIR="${HOME}/ros2_ws"
