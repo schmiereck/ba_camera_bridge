@@ -1,0 +1,36 @@
+# Intrinsic calibration for the BA overview camera (Logitech C930e @ 640x480,
+# YUYV passthrough). Produced by ROS2 `camera_calibration` (cameracalibrator),
+# captured on the WSL2 laptop subscribing to
+#   /ba_overview_camera/image_raw/compressed
+#
+# camera_name is renamed from the cameracalibrator default "narrow_stereo" to
+# "ba_overview_camera" so it matches the v4l2_camera_node camera_name param
+# and the camera_info_manager loads it without a "does not match" warning.
+#
+# If you re-calibrate: overwrite this file, keep the camera_name line.
+image_width: 640
+image_height: 480
+camera_name: ba_overview_camera
+camera_matrix:
+  rows: 3
+  cols: 3
+  data: [518.94459,   0.     , 340.04769,
+           0.     , 518.92238, 238.39717,
+           0.     ,   0.     ,   1.     ]
+distortion_model: plumb_bob
+distortion_coefficients:
+  rows: 1
+  cols: 5
+  data: [0.099076, -0.180363, -0.005432, 0.006058, 0.000000]
+rectification_matrix:
+  rows: 3
+  cols: 3
+  data: [1., 0., 0.,
+         0., 1., 0.,
+         0., 0., 1.]
+projection_matrix:
+  rows: 3
+  cols: 4
+  data: [523.50983,   0.     , 343.86162,   0.     ,
+           0.     , 526.76935, 235.79931,   0.     ,
+           0.     ,   0.     ,   1.     ,   0.     ]

@@ -17,4 +17,9 @@
     # camera may still run at its native default rate; treat it as a hint.
     time_per_frame: [1, 10]
     camera_frame_id: "overview_camera_link"
-    camera_info_url: ""
+    # Intrinsics from `camera_calibration` / cameracalibrator, stored in the
+    # package under config/. The `camera_name` must match the `camera_name`
+    # field inside that YAML or camera_info_manager logs a warning and falls
+    # back to an empty CameraInfo.
+    camera_name: "ba_overview_camera"
+    camera_info_url: "package://ba_camera_bridge/config/overview_camera_info.yaml"
