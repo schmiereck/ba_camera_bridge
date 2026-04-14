@@ -10,7 +10,8 @@
     # YUV->RGB conversion in v4l2_camera_node ("possibly slow conversion")
     # and wastes CPU, since image_transport/compressed only needs to JPEG-
     # encode the frame afterwards anyway.
-    output_encoding: "yuv422_yuy2"
+    #output_encoding: "yuv422_yuy2"
+    output_encoding: "rgb8"
     image_size: [640, 480]
     # time_per_frame = [numerator, denominator] -> [1, 10] = 10 fps. Note:
     # on v4l2_camera 0.6.x this parameter is not always honoured and the
