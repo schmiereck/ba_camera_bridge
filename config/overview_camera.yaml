@@ -6,11 +6,8 @@
   ros__parameters:
     video_device: "/dev/video0"
     pixel_format: "YUYV"
-    # Pass the native YUYV buffer through unchanged. Using "rgb8" triggers a
-    # YUV->RGB conversion in v4l2_camera_node ("possibly slow conversion")
-    # and wastes CPU, since image_transport/compressed only needs to JPEG-
-    # encode the frame afterwards anyway.
-    #output_encoding: "yuv422_yuy2"
+    # Use "rgb8" to ensure the compressed image transport plugin 
+    # receives a format it can correctly encode in color.
     output_encoding: "rgb8"
     image_size: [640, 480]
     # time_per_frame = [numerator, denominator] -> [1, 10] = 10 fps. Note:
