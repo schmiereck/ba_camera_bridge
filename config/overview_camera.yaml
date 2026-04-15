@@ -10,10 +10,8 @@
     # receives a format it can correctly encode in color.
     output_encoding: "rgb8"
     image_size: [640, 480]
-    # time_per_frame = [numerator, denominator] -> [1, 10] = 10 fps. Note:
-    # on v4l2_camera 0.6.x this parameter is not always honoured and the
-    # camera may still run at its native default rate; treat it as a hint.
-    time_per_frame: [1, 10]
+    # [1, 5] = 5 fps. Lowering this to reduce network congestion.
+    time_per_frame: [1, 5]
     camera_frame_id: "overview_camera_link"
     # Intrinsics from `camera_calibration` / cameracalibrator, stored in the
     # package under config/. Note: v4l2_camera_node 0.6.x has no `camera_name`
