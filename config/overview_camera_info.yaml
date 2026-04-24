@@ -1,17 +1,6 @@
 # Intrinsic calibration for the BA overview camera (Logitech C930e @ 640x480,
 # YUYV passthrough). Produced by ROS2 `camera_calibration` (cameracalibrator),
-# captured on the WSL2 laptop subscribing to
-#   /ba_overview_camera/image_raw/compressed
-#
-# camera_name must match what v4l2_camera_node reports to the
-# camera_info_manager, otherwise the manager logs
-#     [<device_name>] does not match <yaml_name> in file ...
-# on every startup. v4l2_camera_node (0.6.x) derives this name from the USB
-# product string and does NOT honour a `camera_name` ROS parameter, so the
-# value below is the device-derived name, not a role name like
-# "ba_overview_camera". If you swap to a different webcam, this mismatch is
-# the expected signal that the intrinsics no longer apply and you need to
-# re-calibrate.
+# captured on 2026-04-23.
 #
 # If you re-calibrate: overwrite this file, keep the camera_name line.
 image_width: 640
@@ -20,14 +9,14 @@ camera_name: logitech_webcam_c930e
 camera_matrix:
   rows: 3
   cols: 3
-  data: [518.94459,   0.     , 340.04769,
-           0.     , 518.92238, 238.39717,
+  data: [520.27532,   0.     , 332.33143,
+           0.     , 520.97466, 236.92167,
            0.     ,   0.     ,   1.     ]
 distortion_model: plumb_bob
 distortion_coefficients:
   rows: 1
   cols: 5
-  data: [0.099076, -0.180363, -0.005432, 0.006058, 0.000000]
+  data: [0.092671, -0.164557, -0.005993, 0.003728, 0.000000]
 rectification_matrix:
   rows: 3
   cols: 3
@@ -37,6 +26,6 @@ rectification_matrix:
 projection_matrix:
   rows: 3
   cols: 4
-  data: [523.50983,   0.     , 343.86162,   0.     ,
-           0.     , 526.76935, 235.79931,   0.     ,
+  data: [525.73303,   0.     , 334.42279,   0.     ,
+           0.     , 527.79749, 234.14789,   0.     ,
            0.     ,   0.     ,   1.     ,   0.     ]
