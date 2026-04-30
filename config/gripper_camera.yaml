@@ -4,11 +4,9 @@ ba_gripper_camera:
     ros__parameters:
       # Use /dev/video2 (typically the second physical USB camera)
       video_device: "/dev/video2"
-    pixel_format: "YUYV"
-    output_encoding: "rgb8"
-    image_size: [640, 480]
-    # Gripper cam can also run at 5 fps to save bandwidth
-    time_per_frame: [1, 5]
-    camera_frame_id: "gripper_camera_link"
-    # No calibration yet, using raw defaults. 
-    # camera_info_url: "package://ba_camera_bridge/config/gripper_camera_info.yaml"
+      pixel_format: "YUYV"
+      output_encoding: "rgb8"
+      image_size: [640, 480]
+      # Gripper cam can also run at 5 fps to save bandwidth
+      time_per_frame: [1, 5]
+      camera_frame_id: "gripper_camera_link"
