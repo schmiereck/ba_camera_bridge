@@ -2,9 +2,9 @@
 /**:
   ros__parameters:
     video_device: "/dev/v4l/by-path/platform-fd500000.pcie-pci-0000:01:00.0-usb-0:1.4:1.0-video-index0"
-    pixel_format: "MJPG"
+    pixel_format: "YUYV"
     output_encoding: "rgb8"
     image_size: [640, 480]
-    time_per_frame: [1, 30]
+    time_per_frame: [1, 5]
     camera_frame_id: "overview_camera_link"
     camera_info_url: "package://ba_camera_bridge/config/overview_camera_info.yaml"
