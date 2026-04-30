@@ -1,15 +1,14 @@
 # Parameters for the overview v4l2_camera_node.
-ba_overview_camera:
-  v4l2_camera_node:
-    ros__parameters:
-      video_device: "/dev/video0"
-      pixel_format: "YUYV"
-      # Use "rgb8" to ensure the compressed image transport plugin 
-      # receives a format it can correctly encode in color.
-      output_encoding: "rgb8"
-      image_size: [640, 480]
-      # [1, 5] = 5 fps. Lowering this to reduce network congestion.
-      time_per_frame: [1, 5]
-      camera_frame_id: "overview_camera_link"
-      # Intrinsics from `camera_calibration` / cameracalibrator.
-      camera_info_url: "package://ba_camera_bridge/config/overview_camera_info.yaml"
+/**:
+  ros__parameters:
+    video_device: "/dev/video0"
+    pixel_format: "YUYV"
+    # Use "rgb8" to ensure the compressed image transport plugin 
+    # receives a format it can correctly encode in color.
+    output_encoding: "rgb8"
+    image_size: [640, 480]
+    # [1, 5] = 5 fps. Lowering this to reduce network congestion.
+    time_per_frame: [1, 5]
+    camera_frame_id: "overview_camera_link"
+    # Intrinsics from `camera_calibration` / cameracalibrator.
+    camera_info_url: "package://ba_camera_bridge/config/overview_camera_info.yaml"
