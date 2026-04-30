@@ -1,5 +1,5 @@
 [Unit]
-Description=BA Overview Camera ROS2 Publisher (v4l2_camera via ba_camera_bridge)
+Description=BA Camera Bridge ROS2 Publisher (Overview + Gripper)
 Documentation=https://github.com/schmiereck/ba_camera_bridge
 After=network-online.target
 Wants=network-online.target
@@ -21,7 +21,7 @@ Environment=HOME=/home/ubuntu
 
 # Source base ROS + overlay workspace, then launch the camera.
 # Using `bash -c` (not `-lc`) so we do NOT depend on interactive ~/.bashrc state.
-ExecStart=/bin/bash -c 'set -e; source /opt/ros/humble/setup.bash; source /home/ubuntu/ros2_ws/install/setup.bash; exec ros2 launch ba_camera_bridge overview_camera.launch.py'
+ExecStart=/bin/bash -c 'set -e; source /opt/ros/humble/setup.bash; source /home/ubuntu/ros2_ws/install/setup.bash; exec ros2 launch ba_camera_bridge all_cameras.launch.py'
 
 Restart=on-failure
 RestartSec=3

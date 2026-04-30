@@ -1,10 +1,8 @@
 # Parameters for the overview v4l2_camera_node.
-#
-# The wildcard key "/**" matches any node loaded with this file, so the
-# same YAML stays valid if the launch file changes namespace or node name.
-/**:
-  ros__parameters:
-    video_device: "/dev/video0"
+ba_overview_camera:
+  v4l2_camera_node:
+    ros__parameters:
+      video_device: "/dev/video0"
     pixel_format: "YUYV"
     # Use "rgb8" to ensure the compressed image transport plugin 
     # receives a format it can correctly encode in color.

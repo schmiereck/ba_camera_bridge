@@ -1,8 +1,9 @@
 # Parameters for the gripper v4l2_camera_node.
-/**:
-  ros__parameters:
-    # Use /dev/video2 (typically the second physical USB camera)
-    video_device: "/dev/video2"
+ba_gripper_camera:
+  v4l2_camera_node:
+    ros__parameters:
+      # Use /dev/video2 (typically the second physical USB camera)
+      video_device: "/dev/video2"
     pixel_format: "YUYV"
     output_encoding: "rgb8"
     image_size: [640, 480]
