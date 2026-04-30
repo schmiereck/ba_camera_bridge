@@ -3,7 +3,8 @@
   ros__parameters:
     # Use /dev/video2 (typically the second physical USB camera)
     video_device: "/dev/video2"
-    pixel_format: "YUYV"
+    pixel_format: "mjpeg"
+
     output_encoding: "rgb8"
     image_size: [640, 480]
     # Gripper cam can also run at 5 fps to save bandwidth
